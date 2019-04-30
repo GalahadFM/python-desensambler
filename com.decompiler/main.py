@@ -7,6 +7,18 @@ variables = {'Ax' : 0, 'Bx' : 0,'Cx' : 0,'Dx' : 0,'Sp' : 0,'Bp' : 0,'Si' : 0,'Bi
 def mov(x, b):
     variables[x] = b
 
+def add(x,b):
+    variables[x] = x+b
+
+def sub(x,b):
+    variables[x] = x-b
+
+def mul():
+
+def div():
+
+
+
 
 if __name__ == '__main__':
     mov('Ax', 2)
