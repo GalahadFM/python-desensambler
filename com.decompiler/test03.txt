@@ -1,8 +1,7 @@
 MOV AX,2
 MOV BX,2
-MOV CX,0
 
-SUMA: SUM AX,2
+SUMA: CMP AX,4
     JE END
     INC AX
     JUM SUMA
