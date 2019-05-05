@@ -7,7 +7,7 @@ stack = []
 index = 0
 last_index = 0
 jump_points = {}
-instructions = open('test01.txt', 'r').readlines()
+instructions = open('test02.txt', 'r').readlines()
 comparison = None
 
 
@@ -16,25 +16,25 @@ def execFunction(name, v):
     global index
     global last_index
 
-    if name == 'MOV':
+    if name == 'MOV' or name == "mov":
         mov(v[0], v[1])
-    if name == 'SUM':
+    if name == 'SUM' or name == "sum":
         add(v[0], v[1])
-    if name == 'DIV':
+    if name == 'DIV' or name == "div":
         div(v[0])
-    if name == 'MUL':
+    if name == 'MUL' or name == "mul":
         mul(v[0])
-    if name == 'SUB':
+    if name == 'SUB' or name == "sub":
         sub(v[0], v[1])
-    if name == 'PUSH':
+    if name == 'PUSH' or name == "push":
         push(v[0])
-    if name == 'POP':
+    if name == 'POP' or name == "pop":
         POP()
-    if name == 'CMP':
+    if name == 'CMP' or name == "cmp":
         cmp(v[0], v[1])
-    if name == 'INC':
+    if name == 'INC' or name == "inc":
         inc(v[0])
-    if name == 'DEC':
+    if name == 'DEC' or name == "dec":
         dec(v[0])
 
 
@@ -48,8 +48,11 @@ def mul(b): var['AX'] = var.get('AX') * var.get(b)
 
 
 def div(b):
-    var['DX'] = var.get('AX') % var.get(b)
-    var['AX'] = int(var.get('AX') / var.get(b))
+    if b == 0:
+        print("Unsupported Operand")
+    else:
+        var['DX'] = var.get('AX') % var.get(b)
+        var['AX'] = int(var.get('AX') / var.get(b))
 
 
 def sub(x, b): var[x] = var.get(x) - var.get(b)
