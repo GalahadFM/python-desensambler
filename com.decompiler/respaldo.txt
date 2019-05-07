@@ -1,0 +1,4 @@
+vaciar: POP AX
+        DEC CX
+        CMP CX,0
+        JNE vaciar

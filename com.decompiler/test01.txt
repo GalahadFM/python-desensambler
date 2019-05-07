@@ -1,0 +1,13 @@
+MOV AX,2
+        MOV BX,2
+        MOV CX,0
+        PUSH AX
+
+COMPARE: CMP CX,10
+        JE END
+        MUL BX
+        PUSH AX
+        INC CX
+        JMP COMPARE
+
+END:   RET

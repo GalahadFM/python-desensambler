@@ -7,7 +7,7 @@ stack = []
 index = 0
 last_index = 0
 jump_points = {}
-instructions = open('test02.txt', 'r').readlines()
+instructions = open('test01.txt', 'r').readlines()
 comparison = None
 
 
@@ -164,8 +164,13 @@ def read_instructions_line(line):
 
 if __name__ == '__main__':
     read_jp()
-    iter = 0
+    i = 0
     while index < len(instructions):
+        i += 1
+        if i == 10000:
+            print("Stack over flow")
+            break
+
         if not is_blank_line():
             operation = read_operation(instructions[index].strip())
             if is_a_tag(operation.split(':')[0]):
